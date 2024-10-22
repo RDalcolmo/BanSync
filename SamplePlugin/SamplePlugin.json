@@ -1,8 +1,8 @@
 {
-  "Author": "your name here",
-  "Name": "Sample Plugin",
-  "Punchline": "A short one-liner that shows up in /xlplugins.",
-  "Description": "A description that shows up in /xlplugins. List any major slash-command(s).",
+  "Author": "SkyeRaf",
+  "Name": "Gold Saucy",
+  "Punchline": "Find out what the next Gold Saucer event is!",
+  "Description": "A plugin that notifies you of the current Gold Saucer event and the next upcoming one! Use /goldbuddy to open the notifier",
   "ApplicableVersion": "any",
   "Tags": [
     "sample",
