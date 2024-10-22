@@ -37,7 +37,7 @@ public sealed class Plugin : IDalamudPlugin
 
         CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
         {
-            HelpMessage = "A useful message to display in /xlhelp"
+            HelpMessage = "Opens up GoldBuddy's alarm interface"
         });
 
         PluginInterface.UiBuilder.Draw += DrawUI;
