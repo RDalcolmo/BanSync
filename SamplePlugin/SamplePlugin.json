@@ -1,12 +1,13 @@
 {
-  "Author": "SkyeRaf",
-  "Name": "Gold Saucy",
-  "Punchline": "Find out what the next Gold Saucer event is!",
-  "Description": "A plugin that notifies you of the current Gold Saucer event and the next upcoming one! Use /goldbuddy to open the notifier",
-  "ApplicableVersion": "any",
-  "Tags": [
-    "sample",
-    "plugin",
-    "goats"
-  ]
+    "Author": "SkyeRaf",
+    "Name": "Gold Saucy",
+    "Punchline": "Find out what the next Gold Saucer event is!",
+    "Description": "A plugin that notifies you of the current Gold Saucer event and the next upcoming one! Use /goldbuddy to open the notifier",
+    "ApplicableVersion": "any",
+    "RepoUrl": "https://github.com/RDalcolmo/GoldSaucy",
+    "Tags": [
+        "sample",
+        "plugin",
+        "goats"
+    ]
 }
