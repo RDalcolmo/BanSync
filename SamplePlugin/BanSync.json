@@ -5,7 +5,7 @@
     "Punchline": "Share banlists and notifications for player avoidance!",
     "Description": "A plugin that notifies you if someone you want to avoid is in your party!",
     "ApplicableVersion": "any",
-    "RepoUrl": "https://github.com/RDalcolmo/GoldBuddy",
+    "RepoUrl": "https://github.com/RDalcolmo/BanSync",
     "Tags": [
         "sample",
         "plugin",
