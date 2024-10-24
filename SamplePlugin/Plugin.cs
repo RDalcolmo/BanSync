@@ -14,7 +14,7 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService] internal static ITextureProvider TextureProvider { get; private set; } = null!;
     [PluginService] internal static ICommandManager CommandManager { get; private set; } = null!;
 
-    private const string CommandName = "/goldbuddy";
+    private const string CommandName = "/bansync";
 
     public Configuration Configuration { get; init; }
 
@@ -37,7 +37,7 @@ public sealed class Plugin : IDalamudPlugin
 
         CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
         {
-            HelpMessage = "Opens up GoldBuddy's alarm interface"
+            HelpMessage = "Opens up BanSync's interface"
         });
 
         PluginInterface.UiBuilder.Draw += DrawUI;
