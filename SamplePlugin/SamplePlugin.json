@@ -1,9 +1,9 @@
 {
     "Author": "SkyeRaf",
-    "Name": "Gold Buddy",
-    "InternalName": "GoldBuddy",
-    "Punchline": "Find out what the next Gold Saucer event is!",
-    "Description": "A plugin that notifies you of the current Gold Saucer event and the next upcoming one!",
+    "Name": "Ban Sync",
+    "InternalName": "BanSync",
+    "Punchline": "Share banlists and notifications for player avoidance!",
+    "Description": "A plugin that notifies you if someone you want to avoid is in your party!",
     "ApplicableVersion": "any",
     "RepoUrl": "https://github.com/RDalcolmo/GoldBuddy",
     "Tags": [
