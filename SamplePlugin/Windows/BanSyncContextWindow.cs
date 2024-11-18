@@ -14,6 +14,7 @@ public class BanSyncContextWindow : Window, IDisposable
     private Plugin Plugin;
     private string PlayerName;
     private ulong PlayerId;
+    private string Reason;
 
     public BanSyncContextWindow(Plugin plugin)
         : base("Add to BanSync", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
@@ -48,8 +49,7 @@ public class BanSyncContextWindow : Window, IDisposable
         ImGui.Text($"Adding '{PlayerName} {PlayerId}' to your BanSync!");
         ImGui.Text($"Reason/Comment:");
 
-        string args = "";
         ImGui.Spacing();
-        ImGui.InputText("", ref args, 400);
+        ImGui.InputText("", ref Reason, 400);
     }
 }
