@@ -17,7 +17,7 @@ public class MainWindow : Window, IDisposable
     // So that the user will see "My Amazing Window" as window title,
     // but for ImGui the ID is "My Amazing Window##With a hidden ID"
     public MainWindow(Plugin plugin, string goatImagePath)
-        : base("My Amazing Window##With a hidden ID", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
+        : base("BanSync##With a hidden ID", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
     {
         SizeConstraints = new WindowSizeConstraints
         {
@@ -31,6 +31,19 @@ public class MainWindow : Window, IDisposable
 
     public void Dispose() { }
 
+    public string? Test()
+    {
+
+        var target = Plugin.TargetManager.Target;
+        var player = Plugin.ClientState?.LocalPlayer?.NameId;
+
+        var response = $"Name: {target?.Name} | GameObjectId: {target?.GameObjectId} |" +
+                       $"TargetObjectId: {target?.TargetObjectId} | OwnerId: {target?.OwnerId} |" +
+                       $" EntityId: {target?.EntityId} | DataId: {target?.DataId}";
+
+        return player?.ToString();
+    }
+
     public override void Draw()
     {
         ImGui.Text($"The random config bool is {Plugin.Configuration.SomePropertyToBeSavedAndWithADefault}");
@@ -41,6 +54,8 @@ public class MainWindow : Window, IDisposable
         }
 
         ImGui.Spacing();
+
+        ImGui.Text(Test() ?? "None");
 
         ImGui.Text("Have a goat:");
         var goatImage = Plugin.TextureProvider.GetFromFile(GoatImagePath).GetWrapOrDefault();

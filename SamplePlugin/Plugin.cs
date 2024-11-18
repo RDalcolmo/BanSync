@@ -5,14 +5,30 @@ using System.IO;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin.Services;
 using BanSync.Windows;
+using Dalamud.Game.ClientState.Objects;
 
 namespace BanSync;
 
 public sealed class Plugin : IDalamudPlugin
 {
-    [PluginService] internal static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
-    [PluginService] internal static ITextureProvider TextureProvider { get; private set; } = null!;
-    [PluginService] internal static ICommandManager CommandManager { get; private set; } = null!;
+    
+    [PluginService]
+    internal static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
+    
+    [PluginService]
+    internal static ITextureProvider TextureProvider { get; private set; } = null!;
+    
+    [PluginService]
+    internal static ICommandManager CommandManager { get; private set; } = null!;
+    
+    [PluginService]
+    internal static ITargetManager TargetManager { get; private set; } = null!;
+
+    [PluginService]
+    internal static IClientState ClientState { get; private set; } = null!;
+
+    [PluginService]
+    internal static IContextMenu ContextMenu { get; private set; } = null!;
 
     private const string CommandName = "/bansync";
 
@@ -21,6 +37,8 @@ public sealed class Plugin : IDalamudPlugin
     public readonly WindowSystem WindowSystem = new("BanSync");
     private ConfigWindow ConfigWindow { get; init; }
     private MainWindow MainWindow { get; init; }
+    internal static BanSyncContextWindow BanSyncContextWindow { get; private set; } = null!;
+    private ContextMenuHandler ContextMenuUI { get; init; }
 
     public Plugin()
     {
@@ -31,9 +49,13 @@ public sealed class Plugin : IDalamudPlugin
 
         ConfigWindow = new ConfigWindow(this);
         MainWindow = new MainWindow(this, goatImagePath);
+        BanSyncContextWindow = new BanSyncContextWindow(this);
 
         WindowSystem.AddWindow(ConfigWindow);
         WindowSystem.AddWindow(MainWindow);
+        WindowSystem.AddWindow(BanSyncContextWindow);
+
+        ContextMenuHandler.Enable();
 
         CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
         {
@@ -56,6 +78,7 @@ public sealed class Plugin : IDalamudPlugin
 
         ConfigWindow.Dispose();
         MainWindow.Dispose();
+        BanSyncContextWindow.Dispose();
 
         CommandManager.RemoveHandler(CommandName);
     }
