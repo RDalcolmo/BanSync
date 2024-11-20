@@ -11,16 +11,13 @@ using System.Threading.Tasks;
 namespace BanSync.Windows;
 public class BanSyncContextWindow : Window, IDisposable
 {
-    private Plugin Plugin;
     private string PlayerName;
     private ulong PlayerId;
     private string Reason;
 
-    public BanSyncContextWindow(Plugin plugin)
+    public BanSyncContextWindow()
         : base("Add to BanSync", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
     {
-        Plugin = plugin;
-
         SizeConstraints = new WindowSizeConstraints
         {
             MinimumSize = new Vector2(305, 150),
