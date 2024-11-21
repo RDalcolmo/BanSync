@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 namespace BanSync.Windows;
 public class BanSyncContextWindow : Window, IDisposable
 {
-    private string PlayerName;
+    private string PlayerName = string.Empty;
     private ulong PlayerId;
-    private string Reason;
+    private string Reason = string.Empty;
 
     public BanSyncContextWindow()
         : base("Add to BanSync", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)

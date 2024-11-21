@@ -49,7 +49,7 @@ public sealed class Plugin : IDalamudPlugin
 
         ConfigWindow = new ConfigWindow(this);
         MainWindow = new MainWindow(this, goatImagePath);
-        BanSyncContextWindow = new BanSyncContextWindow(this);
+        BanSyncContextWindow = new BanSyncContextWindow();
 
         WindowSystem.AddWindow(ConfigWindow);
         WindowSystem.AddWindow(MainWindow);
